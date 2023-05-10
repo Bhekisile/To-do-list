@@ -1,7 +1,4 @@
-import style from './main.css';
-import component from './component.js';
+import './main.css';
+// import component from './component.js';
 
-console.log('Hola!');
-console.log('adios');
-
-document.body.append(component())
+document.textContent = 'Hello';

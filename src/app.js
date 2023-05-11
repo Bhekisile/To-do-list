@@ -3,8 +3,8 @@ import './main.css';
 // const taskList = document.getElementById('task-list');
 
 const tasks = [
-  { index: 1, description: 'wash the dishes', completed: false },
-  { index: 2, description: 'complete To Do list project', completed: true },
+  { index: '', description: '', completed:'' },
+  { index: '', description: '', completed:'' },
 ];
 
 function renderTasks() {

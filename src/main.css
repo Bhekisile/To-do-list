@@ -75,7 +75,7 @@ form {
 
 #task-list {
   margin-bottom: 0;
-  margin-top: 30px;
+  margin-top: 0;
   list-style: none;
   border-bottom: 1px solid #7a869a;
   color: #7a869a;
@@ -85,7 +85,7 @@ form {
 ul li {
   display: flex;
   gap: 24px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   margin-left: 0;
   padding-left: 26px;
   align-items: center;

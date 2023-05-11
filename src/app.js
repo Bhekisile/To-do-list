@@ -1,4 +1,5 @@
 import './main.css';
+import './index.js';
 
 // const taskList = document.getElementById('task-list');
 

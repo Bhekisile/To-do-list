@@ -1,9 +1,6 @@
 import './main.css';
 
 const taskList = document.getElementById('task-list');
-// const newTaskInput = document.getElementById('new-task-input');
-// const newTask = document.querySelector('new-task');
-// const btn = document.getElementById('btn'); 
 
 const tasks = [
   {
@@ -31,8 +28,8 @@ for (let index = 0; index < tasks.length; index += 1) {
   taskList.appendChild(listItem);
 }
 
-  // Create a horizontal line element
+// Create a horizontal line element
 const hr = document.querySelector('.hr');
-hr.innerHTML = `<hr>`;
+hr.innerHTML = '<hr>';
 const clear = document.getElementById('clear');
-clear.innerHTML = `Clear all completed`;
+clear.innerHTML = 'Clear all completed';

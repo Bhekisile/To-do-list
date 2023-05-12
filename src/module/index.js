@@ -24,7 +24,7 @@ const displayTask = () => {
 
 const newTask = document.getElementById('input');
 const addTask = (e) => {
-  if (e instanceof KeyboardEvent && e.key === 'Enter' || e === 'clicked') {
+  if (((e instanceof KeyboardEvent) && (e.key === 'Enter')) || (e === 'clicked')) {
     const taskItem = {
       description: newTask.value,
       completed: false,

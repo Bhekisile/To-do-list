@@ -8,16 +8,17 @@ const displayTask = () => {
     taskContainer.classList = 'content';
     taskContainer.index = `${task.index}`;
     taskContainer.innerHTML = `<div class="taskInput" id='${task.index}'>
-                          <input type="checkbox"></input>
-                            <input id="info" class="${task.completed === true ? 'taskCmpleted' : 'edit'}"
+                          <input id="checkbox" type="checkbox"></input>
+                            <input id="info" class="${task.completed === true ? 'taskCompleted' : 'edit'}"
                               type="text" value="${task.description}">
                             </input>
                           </div>
                           <i class="fa-solid fa-trash-can deleteTask" id="removeTask"></i>`;
-    const info = document.getElementById('info');
-    if (task.completed === true) {
-      info.classList.add('taskCompleted');
-    }
+    //                       console.log('info', info);
+    // const info = document.getElementById('#myTasksList, #info');
+    // if (task.completed === true) {
+    //   info.classList.add('taskCompleted');
+    // }
     mytaskList.appendChild(taskContainer);
   });
 };

@@ -1,32 +1,37 @@
 import './main.css';
-import './index.js';
+import {
+  displayTask, addTask, editTask, deleteTask,
+} from './module/index.js';
 
-// const taskList = document.getElementById('task-list');
+console.log('index');
+const tasksList = document.getElementById('myTasksList');
+const newTask = document.getElementById('input');
+const submit = document.getElementById('submit');
 
-const tasks = [
-  { index: '', description: '', completed: '' },
-  { index: '', description: '', completed: '' },
-];
+newTask.addEventListener('keypress', (e) => {
+  addTask(e);
+});
 
-function renderTasks() {
-  const taskList = document.getElementById('task-list');
-  tasks.sort((a, b) => a.index - b.index);
-  tasks.forEach((task) => {
-    const li = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    li.appendChild(checkbox);
-    const description = document.createElement('span');
-    description.textContent = task.description;
-    li.appendChild(description);
-    taskList.appendChild(li);
-  });
-}
+submit.addEventListener('click', () => {
+  addTask('clicked');
+});
 
-window.addEventListener('load', renderTasks);
+tasksList.addEventListener('click', (event) => {
+  const clickedItem = event.target.classList[event.target.classList.length - 1];
+  const li = event.target.parentElement;
+  if (clickedItem === 'deleteTask') {
+    deleteTask(li.index);
+    event.target.parentElement.remove();
+  }
+});
 
-// Create a horizontal line element
-const hr = document.querySelector('.hr');
-hr.innerHTML = '<hr>';
-const clear = document.getElementById('clear');
-clear.innerHTML = 'Clear all completed';
+tasksList.addEventListener('keypress', (event) => {
+  const taskToEdit = event.target.classList[event.target.classList.length - 1];
+  const li = event.target.parentElement;
+  const index = li.id;
+  if (taskToEdit === 'edit') {
+    editTask(index, event);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', displayTask());

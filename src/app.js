@@ -3,7 +3,6 @@ import {
   displayTask, addTask, editTask, deleteTask,
 } from './module/index.js';
 
-console.log('index');
 const tasksList = document.getElementById('myTasksList');
 const newTask = document.getElementById('input');
 const submit = document.getElementById('submit');

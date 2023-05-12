@@ -1,7 +1,6 @@
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 const mytaskList = document.getElementById('myTasksList');
-console.log('display');
 const displayTask = () => {
   mytaskList.innerHTML = '';
   tasks.forEach((task) => {
@@ -23,10 +22,9 @@ const displayTask = () => {
   });
 };
 
-const newTask = document.getElementById('new-task-input');
+const newTask = document.getElementById('input');
 const addTask = (e) => {
-  if (e.key === 'Enter' || e === 'clicked') {
-    console.log('hi');
+  if (e instanceof KeyboardEvent && e.key === 'Enter' || e === 'clicked') {
     const taskItem = {
       description: newTask.value,
       completed: false,
@@ -40,7 +38,7 @@ const addTask = (e) => {
 };
 
 const btn = document.getElementById('submit');
-btn.addEventListener('click', () => {
+btn.addEventListener('click', (e) => {
   e.preventDefault();
   addTask();
 });

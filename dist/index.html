@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
-    <link href="style.css" rel="stylesheet">
-<script defer src="main.a9c11a6ed29518ebd250.js"></script></head>
-<body>
-    <section class="container">
-        <div class="black"></div>
-        <div class="wrapper">
-            <header>
-                
-                <h2>Today's To-Do</h2>
-                <div class="hr"></div>
-            </header>
-            <form id="new-task">
-                <input type="text" id="new-task-input" placeholder="Add to your list..." />
-            </form>
-            <ul id="task-list"></ul>
-            <p id="clear"></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <script src="https://kit.fontawesome.com/d7d1a0422d.js" crossorigin="anonymous"></script>
+  <script defer src="main.8cdd321aa9392ff13c54.js"></script></head>
+  <body>
+    <header>
+      <h2 class="title">My To Do List</h2>
+    </header>
+    <main>
+      <section class="main">
+        <header class="header">
+          <h3 class="tasksTitle">Today's To Do List</h3>
+          <i class="fas fa-sync" alt="Refresh"></i>
+        </header>
+        <form class="addTask">
+          <label for="input">Add to your todo list...</label>
+          <div class="form-group">
+            <input id="input" type="text" name="task" />
+            <button type="submit" id="submit">Add</button>
+          </div>
+        </form>
+        <section id="myTasksList"></section>
+        <div class="clear">
+          <button class="btn" type="submit" id="remove">Clear All Completed</button>
         </div>
-        <div class="black-bottom"></div>
-    </section>
-    <script src="script.js"></script>
-</body>
+      </section>
+    </main>
+  </body>
 </html>

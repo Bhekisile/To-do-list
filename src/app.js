@@ -1,4 +1,4 @@
-import './main.css';
+import './style.css';
 import {
   displayTask, addTask, editTask, deleteTask,
 } from './module/index.js';

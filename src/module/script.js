@@ -1,21 +1,23 @@
-import './index.js';
+import { displayTask } from './index.js';
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 const checkbox = document.querySelector('#myTasksList, #checkbox');
 
-const saveTasks = () => {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-};
-function checkCheckbox() {
-  tasks.forEach((task) => {
-    if (checkbox.checked) {
-      task.completed = false;
-    } else {
-      task.completed = true;
-    }
+const completedTasks = () => {
+  const uncompletedTodos = tasks.filter((element) => element.completed !== true);
+  tasks = uncompletedTodos.map((element, index) => {
+    element.index = index + 1;
+    return element;
   });
-  saveTasks();
-}
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  // loadTasks(newTask);
+};
+
+const checkCheckbox = ({ index, status }) => {
+  tasks[index - 1].completed = status;
+  displayTask();
+  completedTasks();
+};
 
 checkbox.addEventListener('change', checkCheckbox);
 
@@ -34,7 +36,7 @@ const clearCompletedTasks = () => {
       tasks = tasks.filter((task) => task.index !== taskId);
     }
   });
-  saveTasks();
+  localStorage.setItem('tasks', JSON.stringify(tasks));
   updateTaskIndexes();
 };
 

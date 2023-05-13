@@ -5,7 +5,7 @@ const checkbox = document.querySelector('#myTasksList, #checkbox');
 
 function checkCheckbox() {
     tasks.forEach((task) => {
-        if (checkbox.unchecked) {
+        if (checkbox.checked) {
             task.completed = false;
             console.log('task is incomplete');
         } else {
@@ -16,24 +16,24 @@ function checkCheckbox() {
     saveTasks();
 }
 
-checkbox.addEventListener('click', checkCheckbox);
+checkbox.addEventListener('change', checkCheckbox);
 
 const saveTasks = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   };
 
   const clearCompletedTasks = () => {
-    // tasks = tasks.filter((task) => !task.completed);
-    // updateTaskIndexes();
-    // saveTasks();
-    // // renderTaskList();
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const content = document.querySelector('.content');
     checkboxes.forEach(function (checkbox) {
-       if (checkbox.checked = false) {
-        content.parentNode.removeChild(content); 
-       }
+      if (checkbox.checked) {
+        const taskContainer = checkbox.closest('.content');
+        taskContainer.remove();
+        const taskId = taskContainer.getAttribute('index');
+        tasks = tasks.filter(task => task.index !== taskId);
+      }
     });
+    saveTasks();
+    updateTaskIndexes();
   };
 
   const clearAll = document.getElementById('remove');
@@ -44,9 +44,5 @@ const saveTasks = () => {
       task.index = index;
     });
   };
-
-//   const renderTaskList = () => {
-//     taskList.innerHTML = '';
-//   }
 
 export {saveTasks} from './script.js';

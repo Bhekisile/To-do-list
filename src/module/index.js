@@ -14,11 +14,11 @@ const displayTask = () => {
                             </input>
                           </div>
                           <i class="fa-solid fa-trash-can deleteTask" id="removeTask"></i>`;
-    //                       console.log('info', info);
-    // const info = document.getElementById('#myTasksList, #info');
-    // if (task.completed === true) {
-    //   info.classList.add('taskCompleted');
-    // }
+                          console.log('info', info);
+    const info = document.getElementById('#myTasksList, #info');
+    if (task.completed === true) {
+      info.classList.add('taskCompleted');
+    }
     mytaskList.appendChild(taskContainer);
   });
 };

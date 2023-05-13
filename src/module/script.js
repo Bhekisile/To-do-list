@@ -10,7 +10,7 @@ const completedTasks = () => {
     return element;
   });
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  // loadTasks(newTask);
+  loadTasks(newTask);
 };
 
 const checkCheckbox = ({ index, status }) => {

@@ -23,7 +23,7 @@ tasksList.addEventListener('click', (event) => {
     deleteTask(li.index);
     event.target.parentElement.remove();
   }
-  // saveTasks();
+  saveTasks();
 });
 
 tasksList.addEventListener('keypress', (event) => {

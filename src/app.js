@@ -2,7 +2,7 @@ import './main.css';
 import {
   displayTask, addTask, editTask, deleteTask,
 } from './module/index.js';
-import {saveTasks} from'./module/script.js';
+import './module/script.js';
 
 const tasksList = document.getElementById('myTasksList');
 const newTask = document.getElementById('input');

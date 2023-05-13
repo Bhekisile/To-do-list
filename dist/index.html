@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do List</title>
-    <script src="https://kit.fontawesome.com/d7d1a0422d.js" crossorigin="anonymous"></script>
-  <script defer src="main.b5d5c4184fd417103282.js"></script></head>
-  <body>
-    <header>
-      <h2 class="title">My To Do List</h2>
-    </header>
-    <main>
-      <section class="main">
-        <header class="header">
-          <h3 class="tasksTitle">Today's To Do List</h3>
-          <i class="fas fa-sync" alt="Refresh"></i>
-        </header>
-        <form class="addTask">
-          <label for="input">Add to your todo list...</label>
-          <div class="form-group">
-            <input id="input" type="text" name="task" />
-            <button type="submit" id="submit">Add</button>
-          </div>
-        </form>
-        <section id="myTasksList"></section>
-        <div class="clear">
-          <button class="btn" type="submit" id="remove">Clear All Completed</button>
-        </div>
-      </section>
-    </main>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/d7d1a0422d.js" crossorigin="anonymous"></script>
+  <title>To Do List App</title>
+<script defer src="main.js"></script></head>
+
+<body>
+  <h2 class="title">My To Do App</h2>
+  <div class="main">
+    <div class="header">
+      <h3 class="tasksTitle">Today's To Do List</h3>
+      <i class="fas fa-sync"></i>
+    </div>
+    <div class="addTask">
+      <form class="form">
+
+        <input id="input" type="text" placeholder="Add to your todo list..." />
+
+        <i class="fas fa-arrow-right" id="submit"></i>
+      </form>
+    </div>
+
+    <div id="myTasksList"></div>
+    <div class="clear">
+      <button class="btn" id="remove">Clear All Completed</button>
+    </div>
+
+
+  </div>
+</body>
+
 </html>

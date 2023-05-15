@@ -1,15 +1,10 @@
-// import { renderTaskList } from './';
+import { updateTaskIndexes, renderTaskList } from './index.js';
 
+// const taskList = document.getElementById('task-list');
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 const saveTasks = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
-};
-
-const updateTaskIndexes = () => {
-  tasks.forEach((task, index) => {
-    task.index = index;
-  });
 };
 
 // Clearing completed
@@ -25,5 +20,3 @@ clearCompleted.addEventListener('click', (event) => {
   event.preventDefault();
   clearCompletedTasks();
 });
-
-export { renderTaskList };

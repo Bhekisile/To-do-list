@@ -1,139 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300;1,400&display=swap');
+
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
-  background-color: bisque;
-  font-family: sans-serif;
+  font-family: 'Lato', sans-serif;
+  background: rgb(211,211,211);
+}
+
+.container {
+  width: 50%;
+  margin: 8rem auto 0;
+  padding: 2rem;
+  background: #f9f9f9;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}
+
+hr {
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  color: rgb(105,105,105);
+  font-weight: 400;
+}
+
+form {
+  display: flex;
+  margin: 20px;
+}
+
+#new-task {
+  border: none;
+}
+
+#task-list {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  color: rgb(105,105,105);
+  font-size: 1.1rem;
+  padding: 1rem 0;
+}
+
+i.uil-ellipsis-v {
+  margin-left: auto;
+}
+
+input[type='text'] {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  margin-left: -1.3rem;
+  color: rgb(105,105,105);
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+#new-task::placeholder {
+  color: rgb(105,105,105);
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #c0392b;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  padding: 0;
+}
+
+li:hover .delete-button {
+  display: block;
 }
 
 i {
-  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .title {
-  text-align: center;
-  margin-top: 5%;
-  margin-bottom: 2.5%;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  width: 40%;
-  background-color: #ffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  padding: 2%;
-}
-
-.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5%;
-  border-bottom: 1.5px #ddd solid;
 }
 
-.tasksTitle {
-  margin-bottom: 5px;
-  padding-bottom: 5px;
+.title i {
+  color: rgb(105,105,105);
 }
 
-.form {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 2%;
-  padding-bottom: 2%;
-  border-bottom: #ddd 1.5px solid;
-}
-
-.form input {
-  width: 85%;
-  font-size: 1.2rem;
-  font-style: italic;
-  padding-left: 1%;
-  outline: none;
+button[type='submit'] {
   border: none;
-}
-
-.content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px #ddd solid;
-  margin-bottom: 2%;
-  padding-bottom: 2%;
-}
-
-.taskInput {
-  display: flex;
-  width: 90%;
-}
-
-#info {
-  padding-left: 5px;
-  width: 100%;
-  font-style: normal;
-  font-weight: 300;
-}
-
-.taskCompleted {
-  text-decoration: line-through;
-  outline: none;
-  border: none;
-  margin-left: 2%;
-  margin-top: 2%;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.editTask {
-  outline: none;
-  border: none;
-  margin-left: 2%;
-  margin-top: 2%;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.edit {
-  outline: none;
-  border: none;
-  margin-left: 2%;
-  margin-top: 2%;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.clear {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn {
-  width: 100%;
-  height: 40px;
-  outline: none;
-  border: none;
-  border-radius: 10px;
+  border-radius: 0 5px 5px 0;
   background-color: #dbe1ec;
-  font-size: 1rem;
   cursor: pointer;
+  outline: none;
+  margin-left: 0.5rem;
+  color: rgb(105,105,105);
 }
 
-.btn:hover {
-  transition: 0.5s ease-in-out;
-  background-color: rgb(155, 186, 219);
-  color: black;
+span {
+  margin-left: 10px;
+}
+
+input[type='checkbox'] {
+  margin-right: 10px;
+}
+
+input[type='checkbox']:checked + span {
+  text-decoration: line-through;
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin: 2rem auto 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: rgb(105,105,105);
+}
+
+a:hover {
+  text-decoration: underline;
 }

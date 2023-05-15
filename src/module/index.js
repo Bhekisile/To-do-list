@@ -1,8 +1,11 @@
-import renderTaskList from './script.js';
-// const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 const taskList = document.getElementById('task-list');
-let editTaskDescription;
 let deleteTask;
+let editTaskDescription;
+
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+const saveTasks = () => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
 
 const markAsCompleted = (task) => {
   task.completed = true;
@@ -11,6 +14,7 @@ const markAsCompleted = (task) => {
 const markAsIncomplete = (task) => {
   task.completed = false;
 };
+
 const createTaskLists = (task) => {
   const deleteButton = document.createElement('button');
   const listItemElement = document.createElement('li');
@@ -69,6 +73,31 @@ const createTaskLists = (task) => {
 
   return listItemElement;
 };
+
+const renderTaskList = () => {
+  taskList.innerHTML = '';
+
+  tasks
+    .sort((task1, task2) => task1.index - task2.index)
+    .forEach((task) => {
+      const listItemElement = createTaskLists(task);
+      taskList.appendChild(listItemElement);
+    });
+};
+
+const updateTaskIndexes = () => {
+  tasks.forEach((task, index) => {
+    task.index = index;
+  });
+};
+
+deleteTask = (index) => {
+  tasks.filter((task) => task.index !== index);
+  updateTaskIndexes();
+  saveTasks();
+  renderTaskList();
+};
+
 editTaskDescription = (task) => {
   const inputElement = document.createElement('input');
   inputElement.type = 'text';
@@ -90,11 +119,4 @@ editTaskDescription = (task) => {
   inputElement.select();
 };
 
-deleteTask = (index) => {
-  tasks = tasks.filter((task) => task.index !== index);
-  updateTaskIndexes();
-  saveTasks();
-  renderTaskList();
-};
-
-// export { renderTaskList};
+export { updateTaskIndexes, renderTaskList, createTaskLists };

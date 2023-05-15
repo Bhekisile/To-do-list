@@ -1,69 +1,100 @@
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+import renderTaskList from './script.js';
+// const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+const taskList = document.getElementById('task-list');
+let editTaskDescription;
+let deleteTask;
 
-const mytaskList = document.getElementById('myTasksList');
-const displayTask = () => {
-  mytaskList.innerHTML = '';
-  tasks.forEach((task) => {
-    const taskContainer = document.createElement('div');
-    taskContainer.classList = 'content';
-    taskContainer.index = `${task.index}`;
-    taskContainer.innerHTML = `<div class="taskInput" id='${task.index}'>
-                          <input id="checkbox" type="checkbox"></input>
-                            <input id="info" class="${task.completed === true ? 'taskCompleted' : 'edit'}"
-                              type="text" value="${task.description}">
-                            </input>
-                          </div>
-                          <i class="fa-solid fa-trash-can deleteTask" id="removeTask"></i>`;
-    //                       console.log('info', info);
-    // const info = document.getElementById('#myTasksList, #info');
-    // if (task.completed === true) {
-    //   info.classList.add('taskCompleted');
-    // }
-    mytaskList.appendChild(taskContainer);
+const markAsCompleted = (task) => {
+  task.completed = true;
+};
+
+const markAsIncomplete = (task) => {
+  task.completed = false;
+};
+const createTaskLists = (task) => {
+  const deleteButton = document.createElement('button');
+  const listItemElement = document.createElement('li');
+  const iconElement = document.createElement('i');
+  const descriptionElement = document.createElement('span');
+
+  const checkboxElement = document.createElement('input');
+  checkboxElement.type = 'checkbox';
+  checkboxElement.checked = task.completed;
+  checkboxElement.addEventListener('change', () => {
+    if (checkboxElement.checked) {
+      markAsCompleted(task);
+    } else {
+      markAsIncomplete(task);
+    }
+    saveTasks();
+
+    //  Check if the checkbox is now checked
+    if (checkboxElement.checked) {
+      deleteButton.style.display = 'block';
+      iconElement.style.display = 'none';
+      listItemElement.style.display = 'flex';
+      listItemElement.style.justifyContent = 'flex-start';
+      deleteButton.style.marginLeft = 'auto';
+    } else {
+      deleteButton.style.display = 'none';
+      iconElement.style.display = 'block';
+      descriptionElement.style.color = '#999';
+    }
   });
+
+  descriptionElement.textContent = task.description;
+
+  descriptionElement.addEventListener('click', () => {
+    editTaskDescription(task);
+  });
+
+  listItemElement.appendChild(checkboxElement);
+  listItemElement.appendChild(descriptionElement);
+
+  iconElement.classList.add('uil', 'uil-ellipsis-v');
+  iconElement.addEventListener('click', () => {
+    editTaskDescription(task);
+  });
+  listItemElement.appendChild(iconElement);
+
+  deleteButton.innerHTML = '<i class="uil uil-trash"></i>';
+  deleteButton.classList.add('delete-button');
+  deleteButton.style.display = 'none';
+
+  deleteButton.addEventListener('click', () => {
+    deleteTask(task.index);
+  });
+
+  listItemElement.appendChild(deleteButton);
+
+  return listItemElement;
+};
+editTaskDescription = (task) => {
+  const inputElement = document.createElement('input');
+  inputElement.type = 'text';
+  inputElement.value = task.description;
+  inputElement.classList.add('edit-input');
+
+  inputElement.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      task.description = inputElement.value.trim();
+      saveTasks();
+      renderTaskList();
+    } else if (event.key === 'Escape') {
+      renderTaskList();
+    }
+  });
+
+  const listItemElement = taskList.children[task.index];
+  listItemElement.replaceChild(inputElement, listItemElement.children[1]);
+  inputElement.select();
 };
 
-const newTask = document.getElementById('input');
-const addTask = (e) => {
-  if (((e instanceof KeyboardEvent) && (e.key === 'Enter')) || (e === 'clicked')) {
-    const taskItem = {
-      description: newTask.value,
-      completed: false,
-      index: tasks.length + 1,
-    };
-    newTask.value = '';
-    tasks = [...tasks, taskItem];
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-    displayTask();
-  }
+deleteTask = (index) => {
+  tasks = tasks.filter((task) => task.index !== index);
+  updateTaskIndexes();
+  saveTasks();
+  renderTaskList();
 };
 
-const btn = document.getElementById('submit');
-btn.addEventListener('click', (e) => {
-  e.preventDefault();
-  addTask();
-});
-
-const editTask = (index, event) => {
-  if (event.target.value === '') return;
-  if (event.key === 'Enter') {
-    tasks[index - 1].description = event.target.value;
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }
-};
-
-const deleteTask = (targetIndex) => {
-  const listFiltered = tasks.filter((item) => +item.index !== +targetIndex);
-  const newList = listFiltered.map((item, index) => ({
-    description: item.description,
-    completed: item.completed,
-    index: index + 1,
-  }));
-  tasks = newList;
-  localStorage.setItem('tasks', JSON.stringify(newList));
-  displayTask();
-};
-
-export {
-  displayTask, addTask, editTask, deleteTask,
-};
+// export { renderTaskList};

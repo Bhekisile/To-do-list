@@ -1,38 +1,50 @@
 import './style.css';
-import {
-  displayTask, addTask, editTask, deleteTask,
-} from './module/index.js';
+// import './module/index.js';
 import './module/script.js';
+// import { createTaskLists } from './module/index.js';
 
-const tasksList = document.getElementById('myTasksList');
-const newTask = document.getElementById('input');
-const submit = document.getElementById('submit');
+const taskList = document.getElementById('task-list');
+const newTask = document.getElementById('new-task');
+const form = document.querySelector('form');
 
-newTask.addEventListener('keypress', (e) => {
-  addTask(e);
-});
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-submit.addEventListener('click', () => {
-  addTask('clicked');
-});
+const saveTasks = () => {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+const renderTaskList = () => {
+  taskList.innerHTML = '';
 
-tasksList.addEventListener('click', (event) => {
-  const clickedItem = event.target.classList[event.target.classList.length - 1];
-  const li = event.target.parentElement;
-  if (clickedItem === 'deleteTask') {
-    deleteTask(li.index);
-    event.target.parentElement.remove();
+  tasks
+    .sort((task1, task2) => task1.index - task2.index)
+    .forEach((task) => {
+      const listItemElement = createTaskLists(task);
+      taskList.appendChild(listItemElement);
+    });
+};
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const taskDescription = newTask.value;
+  if (taskDescription.trim() === '') {
+    return;
   }
-  // saveTasks();
-});
 
-tasksList.addEventListener('keypress', (event) => {
-  const taskToEdit = event.target.classList[event.target.classList.length - 1];
-  const li = event.target.parentElement;
-  const index = li.id;
-  if (taskToEdit === 'edit') {
-    editTask(index, event);
+  function addNewTask(description) {
+    const taskIndex = tasks.length;
+
+    const task = { description, completed: false, index: taskIndex };
+    tasks.push(task);
+    saveTasks();
+
+    const listItemElement = createTaskLists(task);
+    taskList.appendChild(listItemElement);
   }
+
+  addNewTask(taskDescription);
+  newTask.value = '';
 });
 
-document.addEventListener('DOMContentLoaded', displayTask());
+renderTaskList();
+window.addEventListener('load', renderTaskList);

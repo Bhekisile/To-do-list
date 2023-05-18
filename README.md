@@ -25,7 +25,8 @@
 
 # 📖 [To-Do-List] <a name="about-project"></a>
 
-**[To-Do-List]** is a website about a to-do-list of tasks. It is built using webpack which is a module bundler.
+**[To-Do-List]** is a website created to display a list of tasks to do. You can edit and delete the task, or check every task you completed and delete it with the clear all completed button. It is built using Webpack, which is a Javascript module bundler.
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -55,7 +56,7 @@
 <details>
   <summary>Webpack</summary>
   <ul>
-    <li><a href="https://webpack.js.org/guides/getting-started/#basic-setup">Javascript</a></li>
+    <li><a href="https://webpack.js.org/guides/getting-started/#basic-setup">Webpack</a></li>
   </ul>
 </details>
 

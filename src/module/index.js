@@ -2,7 +2,7 @@ const taskList = document.getElementById('task-list');
 let deleteTask;
 let editTaskDescription;
 
-const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 const saveTasks = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
@@ -92,7 +92,7 @@ const updateTaskIndexes = () => {
 };
 
 deleteTask = (index) => {
-  tasks.filter((task) => task.index !== index);
+  tasks = tasks.filter((task) => task.index !== index);
   updateTaskIndexes();
   saveTasks();
   renderTaskList();

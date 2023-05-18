@@ -1,5 +1,6 @@
 import '../style.css';
 import { renderTaskList, createTaskLists } from './index.js';
+import './script.js';
 
 const taskList = document.getElementById('task-list');
 const newTask = document.getElementById('new-task');

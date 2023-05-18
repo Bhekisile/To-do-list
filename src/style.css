@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap");
 
 * {
   box-sizing: border-box;
@@ -11,16 +11,19 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
-  background: rgb(211,211,211);
+  font-family: "Playfair Display", serif;
+  background: rgb(255, 255, 255);
 }
 
 .container {
-  width: 50%;
+  border-radius: 0.7rem;
+  width: 60%;
   margin: 8rem auto 0;
   padding: 2rem;
-  background: #f9f9f9;
-  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+  background: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
 
 hr {
@@ -31,7 +34,7 @@ hr {
 
 h4 {
   font-size: 1.3rem;
-  color: rgb(105,105,105);
+  color: rgb(105, 105, 105);
   font-weight: 400;
 }
 
@@ -58,7 +61,7 @@ li {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  color: rgb(105,105,105);
+  color: rgb(105, 105, 105);
   font-size: 1.1rem;
   padding: 1rem 0;
 }
@@ -67,26 +70,26 @@ i.uil-ellipsis-v {
   margin-left: auto;
 }
 
-input[type='text'] {
+input[type="text"] {
   flex: 1;
   padding: 10px;
   background: transparent;
   margin-left: -1.3rem;
-  color: rgb(105,105,105);
-  font-style: italic;
+  color: rgb(105, 105, 105);
   font-size: 1.2rem;
 }
 
 #new-task::placeholder {
-  color: rgb(105,105,105);
-  font-style: italic;
+  color: rgb(105, 105, 105);
   font-size: 1.2rem;
+  font-family: "Playfair Display", serif;
+  opacity: 0.7;
 }
 
 .delete-button {
   background-color: transparent;
   border: none;
-  color: #c0392b;
+  color: #a71403;
   cursor: pointer;
   display: inline-block;
   font-size: 1.2rem;
@@ -110,28 +113,29 @@ i {
 }
 
 .title i {
-  color: rgb(105,105,105);
+  color: rgb(105, 105, 105);
 }
 
-button[type='submit'] {
+button[type="submit"] {
   border: none;
   border-radius: 0 5px 5px 0;
   background-color: #dbe1ec;
   cursor: pointer;
   outline: none;
   margin-left: 0.5rem;
-  color: rgb(105,105,105);
+  color: rgb(105, 105, 105);
 }
 
 span {
   margin-left: 10px;
+  font-size: 1.3rem;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   margin-right: 10px;
 }
 
-input[type='checkbox']:checked + span {
+input[type="checkbox"]:checked + span {
   text-decoration: line-through;
 }
 
@@ -141,7 +145,7 @@ a {
   margin: 2rem auto 0;
   font-size: 1.3rem;
   font-weight: 400;
-  color: rgb(105,105,105);
+  color: rgb(105, 105, 105);
 }
 
 a:hover {

@@ -12,16 +12,16 @@ module.exports = {
     assetModuleFilename: '[name][ext]',
     clean: true,
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, 'dist'),
-    },
-    port: 8081,
-    open: true,
-    hot: true,
-    watchFiles: ['src/**/*'],
-  },
+  // devtool: 'inline-source-map',
+  // devServer: {
+  //   static: {
+  //     directory: path.resolve(__dirname, 'dist'),
+  //   },
+  //   port: 8081,
+  //   open: true,
+  //   hot: true,
+  //   watchFiles: ['src/**/*'],
+  // },
   // loaders
   module: {
     rules: [

@@ -1,11 +1,9 @@
 import './index.css';
 
-console.log('Hello');
-
 const tasks = [
-  { index: 1, description: "Wash the dishes", completed: true },
-  { index: 2, description: "Complete To Do list project 2", completed: false },
-];   
+  { index: 1, description: 'Wash the dishes', completed: true },
+  { index: 2, description: 'Complete To Do list project 2', completed: false },
+];
 
 function renderTasks() {
   const taskList = document.getElementById('task-list');
@@ -21,7 +19,7 @@ function renderTasks() {
   });
 }
 
-window.addEventListener("load", renderTasks);
+window.addEventListener('load', renderTasks);
 
 const clear = document.getElementById('clear');
 clear.innerHTML = 'Clear all completed';

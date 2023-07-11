@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: sans-serif, "fantasy";
+}
+
+.container {
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #e5e5e5;
+}
+
+.wrapper {
+  width: 600px;
+  height: 395px;
+  margin: 50px auto;
+  background-color: #fff;
+  box-shadow:
+    rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+    rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
+}
+
+.flex {
+  display: flex;
+}
+
+.fa {
+  margin-top: 12px;
+  margin-right: 12px;
+}
+
+.black {
+  width: 100%;
+  height: 20px;
+  background-color: black;
+  margin-bottom: 50px;
+  margin-top: 25px;
+}
+
+.black-bottom {
+  width: 100%;
+  height: 20px;
+  background-color: black;
+  margin-bottom: 0;
+}
+
+header {
+  padding: 10px;
+  width: 100%;
+}
+
+h2 {
+  margin-bottom: 12px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 20px;
+  width: 100%;
+  padding-left: 16px;
+  margin-top: 12px;
+  color: #7a869a;
+}
+
+.hr {
+  margin-bottom: 24px;
+  color: #7a869a;
+}
+
+form {
+  width: 600px;
+  height: 47px;
+  border-bottom: 1px solid #7a869a;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.uil {
+  margin-right: 20px;
+}
+
+#new-task-input {
+  font-size: 18px;
+  font-style: italic;
+  padding-left: 30px;
+  border: none;
+  color: #7a869a;
+  margin-bottom: 0;
+}
+
+#task-list {
+  margin-bottom: 0;
+  margin-top: 0;
+  list-style: none;
+  border-bottom: 1px solid #7a869a;
+  color: #7a869a;
+  padding-left: 0;
+}
+
+ul {
+  height: 169px;
+  width: 600px;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 26px;
+  align-items: center;
+  border-bottom: 1px solid darkgray;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.fa-ellipsis-v {
+  margin-left: auto;
+}
+
+#clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  color: #7a869a;
+  background-color: #e4e4e4;
+  box-shadow: 1px 1px 1px 1px;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+span {
+  margin-left: 10px;
+}

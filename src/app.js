@@ -1,36 +1,25 @@
-import './main.css';
-import {
-  displayTask, addTask, editTask, deleteTask,
-} from './module/index.js';
+import './index.css';
 
-const tasksList = document.getElementById('myTasksList');
-const newTask = document.getElementById('input');
-const submit = document.getElementById('submit');
+const tasks = [
+  { index: 1, description: 'Wash the dishes', completed: true },
+  { index: 2, description: 'Complete To Do list project 2', completed: false },
+];
 
-newTask.addEventListener('keypress', (e) => {
-  addTask(e);
-});
+function renderTasks() {
+  const taskList = document.getElementById('task-list');
+  tasks.sort((a, b) => a.index - b.index);
+  tasks.forEach((task) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+                <input type='checkbox'>
+                <span>${task.description}</span>
+                <i class="fa fa-ellipsis-v"></i>
+    `;
+    taskList.appendChild(li);
+  });
+}
 
-submit.addEventListener('click', () => {
-  addTask('clicked');
-});
+window.addEventListener('load', renderTasks);
 
-tasksList.addEventListener('click', (event) => {
-  const clickedItem = event.target.classList[event.target.classList.length - 1];
-  const li = event.target.parentElement;
-  if (clickedItem === 'deleteTask') {
-    deleteTask(li.index);
-    event.target.parentElement.remove();
-  }
-});
-
-tasksList.addEventListener('keypress', (event) => {
-  const taskToEdit = event.target.classList[event.target.classList.length - 1];
-  const li = event.target.parentElement;
-  const index = li.id;
-  if (taskToEdit === 'edit') {
-    editTask(index, event);
-  }
-});
-
-document.addEventListener('DOMContentLoaded', displayTask());
+const clear = document.getElementById('clear');
+clear.innerHTML = 'Clear all completed';

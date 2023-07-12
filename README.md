@@ -63,7 +63,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- User can add tasks to a list
+- Add, edit, delete functionality
 - Each task is rendered dynamically on page load
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -108,7 +108,7 @@ Run npm start
 
 👤 **Bhekisile Jozi**
 
-- GitHub: [@githubhandle](https://github.com/Bhekisile)
+- GitHub: [@bhekisile](https://github.com/Bhekisile)
 
 - LinkedIn: [BhekisileJozi](https://www.linkedin.com/in/bhekisile-jozi-b9823369/)
 

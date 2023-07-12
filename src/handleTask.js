@@ -79,19 +79,19 @@ const createTaskLists = (task) => {
 };
 
 function addNewTask(description) {
-  const taskIndex = tasks.length;
+  const taskIndex = tasks.length + 1;
 
   const task = { description, completed: false, index: taskIndex };
   tasks.push(task);
   saveTasks();
-
+  // console.log(task);
   const listItemElement = createTaskLists(task);
   taskList.appendChild(listItemElement);
 }
 
 const updateTaskIndexes = () => {
   tasks.forEach((task, index) => {
-    task.index = index;
+    task.index = index + 1;
   });
 };
 
@@ -124,12 +124,13 @@ editTaskDescription = (task) => {
       task.description = inputElement.value.trim();
       saveTasks();
       renderTaskList();
+      // updateTaskIndexes();
     } else if (event.key === 'Escape') {
       renderTaskList();
     }
   });
 
-  const listItemElement = taskList.children[task.index];
+  const listItemElement = taskList.children[task.index -= 1];
   listItemElement.replaceChild(inputElement, listItemElement.children[1]);
   inputElement.select();
 };

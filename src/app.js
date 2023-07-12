@@ -1,25 +1,19 @@
 import './index.css';
+import { renderTaskList, addNewTask } from './handleTask.js';
 
-const tasks = [
-  { index: 1, description: 'Wash the dishes', completed: true },
-  { index: 2, description: 'Complete To Do list project 2', completed: false },
-];
+const newTask = document.getElementById('new-task');
+const form = document.querySelector('form');
 
-function renderTasks() {
-  const taskList = document.getElementById('task-list');
-  tasks.sort((a, b) => a.index - b.index);
-  tasks.forEach((task) => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-                <input type='checkbox'>
-                <span>${task.description}</span>
-                <i class="fa fa-ellipsis-v"></i>
-    `;
-    taskList.appendChild(li);
-  });
-}
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-window.addEventListener('load', renderTasks);
+  const taskDescription = newTask.value;
+  if (taskDescription.trim() === '') {
+    return;
+  }
 
-const clear = document.getElementById('clear');
-clear.innerHTML = 'Clear all completed';
+  addNewTask(taskDescription);
+  newTask.value = '';
+});
+
+window.addEventListener('load', renderTaskList);

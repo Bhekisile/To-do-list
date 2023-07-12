@@ -93,20 +93,6 @@ const renderTaskList = () => {
     });
 };
 
-// function renderTaskList() {
-//   const taskList = document.getElementById('task-list');
-//   tasks.sort((a, b) => a.index - b.index);
-//   tasks.forEach((task) => {
-//     const li = document.createElement('li');
-//     li.innerHTML = `
-//                 <input type='checkbox'>
-//                 <span>${task.description}</span>
-//                 <i class="fa fa-ellipsis-v"></i>
-//     `;
-//     taskList.appendChild(li);
-//   });
-// }
-
 deleteTask = (index) => {
   tasks = tasks.filter((task) => task.index !== index);
   updateTaskIndexes();
@@ -146,20 +132,6 @@ function addNewTask(description) {
   taskList.appendChild(listItemElement);
 }
 
-// Clearing completed
-// const clearCompletedTasks = () => {
-//   tasks = tasks.filter((task) => !task.completed);
-//   updateTaskIndexes();
-//   saveTasks();
-//   renderTaskList();
-// };
-
-// const clearCompleted = document.getElementById('clear');
-// clearCompleted.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   clearCompletedTasks();
-// });
-
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -172,5 +144,4 @@ form.addEventListener('submit', (event) => {
   newTask.value = '';
 });
 
-// renderTaskList();
 window.addEventListener('load', renderTaskList);

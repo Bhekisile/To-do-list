@@ -1,5 +1,5 @@
 import './index.css';
-import { renderTaskList, addNewTask } from './handleTask.js';
+import { renderTaskList, addNewTask } from './module/handleTask.js';
 
 const newTask = document.getElementById('new-task');
 const form = document.querySelector('form');

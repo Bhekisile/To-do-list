@@ -1,3 +1,5 @@
+import { markAsCompleted, markAsIncomplete } from './status.js';
+
 const taskList = document.getElementById('task-list');
 let editTaskDescription;
 let deleteTask;
@@ -6,14 +8,6 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 const saveTasks = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
-};
-
-const markAsCompleted = (task) => {
-  task.completed = true;
-};
-
-const markAsIncomplete = (task) => {
-  task.completed = false;
 };
 
 const createTaskLists = (task) => {
@@ -124,7 +118,6 @@ editTaskDescription = (task) => {
       task.description = inputElement.value.trim();
       saveTasks();
       renderTaskList();
-      // updateTaskIndexes();
     } else if (event.key === 'Escape') {
       renderTaskList();
     }
@@ -133,8 +126,24 @@ editTaskDescription = (task) => {
   const listItemElement = taskList.children[task.index -= 1];
   listItemElement.replaceChild(inputElement, listItemElement.children[1]);
   inputElement.select();
+  task.index += 1;
 };
+
+// Clearing completed
+const clearCompletedTasks = () => {
+  tasks = tasks.filter((task) => !task.completed);
+  updateTaskIndexes();
+  saveTasks();
+  renderTaskList();
+};
+
+const clearCompleted = document.getElementById('clear');
+clearCompleted.addEventListener('click', (event) => {
+  event.preventDefault();
+  clearCompletedTasks();
+});
 
 export {
   saveTasks, createTaskLists, renderTaskList, addNewTask,
+  updateTaskIndexes,
 };

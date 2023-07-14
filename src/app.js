@@ -1,36 +1,19 @@
-import './main.css';
-import {
-  displayTask, addTask, editTask, deleteTask,
-} from './module/index.js';
+import './index.css';
+import { renderTaskList, addNewTask } from './module/handleTask.js';
 
-const tasksList = document.getElementById('myTasksList');
-const newTask = document.getElementById('input');
-const submit = document.getElementById('submit');
+const newTask = document.getElementById('new-task');
+const form = document.querySelector('form');
 
-newTask.addEventListener('keypress', (e) => {
-  addTask(e);
-});
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-submit.addEventListener('click', () => {
-  addTask('clicked');
-});
-
-tasksList.addEventListener('click', (event) => {
-  const clickedItem = event.target.classList[event.target.classList.length - 1];
-  const li = event.target.parentElement;
-  if (clickedItem === 'deleteTask') {
-    deleteTask(li.index);
-    event.target.parentElement.remove();
+  const taskDescription = newTask.value;
+  if (taskDescription.trim() === '') {
+    return;
   }
+
+  addNewTask(taskDescription);
+  newTask.value = '';
 });
 
-tasksList.addEventListener('keypress', (event) => {
-  const taskToEdit = event.target.classList[event.target.classList.length - 1];
-  const li = event.target.parentElement;
-  const index = li.id;
-  if (taskToEdit === 'edit') {
-    editTask(index, event);
-  }
-});
-
-document.addEventListener('DOMContentLoaded', displayTask());
+window.addEventListener('load', renderTaskList);

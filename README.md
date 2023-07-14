@@ -26,7 +26,7 @@
 
 # 📖 [To-Do-List] <a name="about-project"></a>
 
-**[To-Do-List]** is a website about a to-do-list of tasks. It is built using webpack which is a module bundler.
+**[To-Do-List]** is a project about the list of tasks. The user can add, edit, and delete the task and each task is rendered dynamically on page load. The project uses webpack to bundle JavaScript files.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -64,8 +64,8 @@
 
 ### Key Features <a name="key-features"></a>
 
-- User can add tasks to a list
-- Each task is rendered dynamically on page load 
+- Add, edit, delete functionality
+- Each task is rendered dynamically on page load
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,7 +85,9 @@ We will take you through the process. follow these steps.
 
 ### Prerequisites
 
-In order to get started, you be familiar with basic **git commands**.
+In order to get started, you need:
+**Live Server**
+**npm**
 
 ### Setup
 
@@ -93,8 +95,7 @@ Clone this repository to your desired folder.
 
 Example commands:
 
-  git clone git@github.com:myaccount/
-
+git clone https://github.com/Bhekisile/To-do-list
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,7 +107,7 @@ Install this project with:
 
 ### Usage
 
-Run the index.html with your preferred browser.
+Run npm start
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,7 +117,7 @@ Run the index.html with your preferred browser.
 
 👤 **Bhekisile Jozi**
 
-- GitHub: [@githubhandle](https://github.com/Bhekisile)
+- GitHub: [@bhekisile](https://github.com/Bhekisile)
 
 - LinkedIn: [BhekisileJozi](https://www.linkedin.com/in/bhekisile-jozi-b9823369/)
 
@@ -126,7 +127,7 @@ Run the index.html with your preferred browser.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Store user data Local Storage]**
+- [ ] **[Store user data on Local Storage]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,13 +143,13 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project, you can hit like button.
+If you like this project, please hit like button.
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I'd like to thank Microverse for the opportunity to learn software development.
+I'd like to thank Microverse for the opportunity to learn and practice development.
 
 <!-- LICENSE -->
 
